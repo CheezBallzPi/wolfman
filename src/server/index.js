@@ -458,6 +458,7 @@ function vote(req, res) {
 function ready(req, res) {
   var game = findGame(req.session.game)
   game.waiting.splice(game.indexOf(req.session.user), 1)
+  console.log("Ready from " + req.session.user)
   res.json({ success: true })
   if(game.waiting.length == 0) playGame(game)
 }
